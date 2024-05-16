@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "shift-change:build:production"
+              "buildTarget": "shift-change:build:production"
             },
             "development": {
-              "browserTarget": "shift-change:build:development"
+              "buildTarget": "shift-change:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "shift-change:build"
+            "buildTarget": "shift-change:build"
           }
         },
         "test": {
