@@ -9,12 +9,15 @@
 	background-color: #ebc59e;
 }
 .main{
-	width: 350px;
-	height: 550px;
+	width: 130%;
+  	height: 50%;
 	background: rgba(107, 70, 30, 0.4);
 	overflow: hidden;
 	border-radius: 20px;
 	box-shadow: 5px 20px 50px rgb(107, 70, 30);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .signup{
@@ -23,6 +26,13 @@
 	height: 100%;
 	background: rgba(107, 70, 30, 0.4);
 }
+.login{
+	position: relative;
+	width:100%;
+	height: 100%;
+	background: rgba(107, 70, 30, 0.4);
+}
+
 .label{
 	color: #fff;
 	font-size: 2.3em;
@@ -30,6 +40,7 @@
 	font-weight: lighter;
 	display: flex;
 	margin: 20px;
+	margin-top: 8%;
 	transition: .5s ease-in-out;
 }
 input{
@@ -68,14 +79,17 @@ button{
 button:hover{
 	background: #918e8e;
 }
-.login{
-	height: 460px;
-	background: #d78c3d;
-	border-radius: 60% / 10%;
-	transform: translateY(-180px);
-	transition: .8s ease-in-out;
-}
 
-.hidden {
-    display: none;
+p{
+	color: #fff;
+	justify-content: right;
+	display: block;
+	font-size: .8em;
+	margin-top: 30px;
+	text-align: center;
+	margin-top: 8%;
+	margin-bottom: 4%;
+}
+a{
+	color: #fff;
 }

@@ -1,0 +1,39 @@
+mat-toolbar-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    padding: 0 24px;
+    background-color: rgb(215 140 61);
+}
+.homeLink{
+    font-size: 1.1em;
+}
+.homeLink:hover{
+    color: rgb(0, 0, 0, 0.7);
+}
+.homeLink:active {
+    cursor: pointer;
+}
+
+.settingsLink {
+    display: block;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    margin: 0%;
+
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+
+    background-color: rgb(107 70 30);
+    color: rgb(215, 140, 61);
+    text-align: center;
+    font-size: 1em;
+}
+.settingsLink:active {
+    cursor: pointer;
+}
+.settingsLink:hover{
+    background-color: rgb(97, 63, 27);
+}
