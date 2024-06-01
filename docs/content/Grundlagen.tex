@@ -40,3 +40,69 @@ Die UX umfasst verschiedene Komponenten, die zusammenarbeiten, um ein positives 
 Die Usability bezieht sich auf die Benutzerfreundlichkeit und Effizienz eines Produkts. 
 Ein System mit hoher Usability ermöglicht es den Nutzern, ihre Ziele schnell und ohne Frustration zu erreichen. 
 Dies beinhaltet Aspekte wie Lernfähigkeit, Effizienz der Nutzung und Zufriedenheit der Nutzer \cite[S.23 ff.]{Nielsen}.
+
+Die Ästhetik bezieht sich auf das Erscheinungsbild des Produkts. 
+Ein ansprechendes visuelles Design kann die Wahrnehmung der Qualität und den Gesamteindruck eines Produkts erheblich verbessern. 
+Studien zeigen, dass ästhetisch ansprechende Designs oft als funktionaler und benutzerfreundlicher wahrgenommen werden \cite{Tractinsky}.
+
+Die Interaktion beschreibt, wie Nutzer mit einem Produkt oder einer Dienstleistung umgehen. 
+Dies umfasst die Art und Weise, wie Eingaben getätigt werden, wie das System auf Nutzeraktionen reagiert und wie intuitiv diese Interaktionen gestaltet sind. 
+Gute Interaktionsdesigns minimieren die kognitive Belastung und fördern eine reibungslose und intuitive Nutzung \cite{interaction_design}.
+
+Emotionalität in der UX bezieht sich auf die emotionalen Reaktionen und das subjektive Erleben der Nutzer während der Interaktion mit einem Produkt. 
+Positive emotionale Erfahrungen können die Benutzerbindung und Zufriedenheit erhöhen. 
+Studien belegen, dass Produkte, die positive Emotionen hervorrufen, häufiger genutzt und weiterempfohlen werden \cite{emotion}.
+
+Es gibt eine Vielzahl von Methoden zur Bewertung der UX, zu den gebräuchlichsten Methoden gehören:
+
+Usability-Tests beinhalten die Beobachtung und Analyse der Nutzerinteraktionen mit einem System, um Nutzerprobleme zu identifizieren. 
+Durch das Testen in realistischen Nutzungsszenarien können konkrete Probleme und deren Schweregrad ermittelt werden, was zur Verbesserung der Nutzerfreundlichkeit beiträgt. 
+Diese Methode ist besonders effektiv, um zu verstehen, wie Nutzer tatsächlich mit dem System interagieren \cite[S.165 ff.]{Nielsen}.
+
+Mit Nutzerbefragungen und Interviews können qualitative Daten direkt von den Nutzern gesammelt werden. 
+Diese Methode ermöglicht es, tiefergehende Einblicke in die Meinungen, Erfahrungen und Verbesserungsvorschläge der Nutzer zu gewinnen, was zur Optimierung der Interaktionen und der allgemeinen Zufriedenheit beitragen kann. 
+Durch gezielte Fragen können spezifische Aspekte der Nutzererfahrung identifiziert und adressiert werden \cite{ux_bewertung_interview}.
+
+Bei der Eye-Tracking-Technologie wird die Augenbewegungen von Nutzern verfolgt, wie in Abbildung \ref{eye_tracking} dargestellt. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[clip,width=0.4\linewidth]{images/Eye-Tracking-Google-Search-Heat-Map.jpg}
+    \caption[Beispielhafte Visualisierung der Eye Tracking Methode anhand einer Heat Map]{Beispielhafte Visualisierung der Eye Tracking Methode anhand einer Heat Map \cite{image_eye_tracking}}
+    \label{eye_tracking}
+\end{figure}
+
+Durch die Messung von Fixationen, also den Momenten, in denen das Auge auf einem Punkt verharrt, kann festgestellt werden, welche Elemente einer Benutzeroberfläche besondere Aufmerksamkeit erregen. 
+Sakkaden, die schnellen Augenbewegungen zwischen Fixationen, helfen dabei zu verstehen, wie Nutzer Informationen auf einer Seite scannen. 
+Diese Daten liefern wertvolle Einblicke in die Nutzerinteraktion und ermöglichen die Optimierung von Design und Layout basierend auf tatsächlichen Nutzerverhalten \cite[S.3 ff.]{eye_tracking}.
+  
+Durch die Kombination dieser Methoden können umfassende Einblicke in die Stärken und Schwächen der User Experience gewonnen werden, die zur kontinuierlichen Verbesserung des Produkts beitragen.
+
+\section{Technologien}
+\subsection{Angular}
+Angular ist eine Plattform zur Entwicklung von Webanwendungen, die auf TypeScript \ac{TS} basiert. 
+Mit Angular können Single Page Applications für Web-, Mobil- und Desktop-Anwendungen entwickelt werden. 
+Es ist Open Source und wird von Google unterstützt, was bedeutet, dass es kostenlos verwendet werden kann und von einer großen Entwickler-Community gepflegt wird. 
+Ursprünglich war es als AngularJS bekannt und nutzte JavaScript als Hauptprogrammiersprache. Die Codebasis wurde jedoch komplett neu geschrieben, wobei JavaScript durch TS ersetzt wurde \cite{angular_arch}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[clip,width=0.5\linewidth]{images/Komponente.png}
+    \caption[Komponenten in Angular]{Komponenten in Angular}
+    \label{KomponentenAngular}
+\end{figure}
+
+Die grundlegenden Bausteine des Angular-Frameworks sind die Komponenten, welche eine isolierte und somit wieder verwendbar Einheit sind. 
+Eine Komponente besteht aus einer HTML- und CSS-Datei (siehe Abbildung \ref{KomponentenAngular}), die das Aussehen der Benutzeroberfläche definieren. Die zugehörige Klasse enthält den TS Code, der das Verhalten der Komponente steuert \cite{angular_arch}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[clip,width=0.5\linewidth]{images/@Component.png}
+    \caption[@Component-Dekorator in TS]{@Component-Dekorator in TS}
+    \label{Component}
+\end{figure}
+
+Der @Component-Dekorator in TS fügt der Klasse zusätzliche Metadaten hinzu, wie den Pfad zum Template und zu den Styles (siehe templateUrl und styleUrls in der Abbildung \ref{Component}). Die .spec.ts Datei wird für die Unit-Tests verwendet.
+Der Routing-Service ermöglicht die Navigation innerhalb der Anwendung und zeigt verschiedene Komponenten basierend auf der URL an \cite{angular_arch}.
+
+%\subsection{}
