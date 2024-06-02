@@ -1,31 +1,33 @@
 <div class="parent">
     <body>
-        <div class="main">    
-                <div class="signup" id="signup" *ngIf="!showLogin">
-                    <form novalidate>
-                        <!-- TODO: Add validation for the form fields -->
-                        <p class="label">Registrierung</p>
-                        <input type="text" name="txt" placeholder="Nachname" required>
-                        <input type="text" name="txt" placeholder="Vorname" required>
-                        <input type="email" name="email" placeholder="Email" required>
-                        <input type="password" name="Password" placeholder="Passwort" required>
-                        <input type="password" name="Password" placeholder="Passwort bestätigen" required>
-                        <button type="button">Account erstellen</button>
-                        <p>Bereits einen Account <br> erstellt? <a href="#login" (click)="showLoginForm($event)">Hier Einloggen</a></p>
-                    </form>
-                </div>
-    
-                <div class="login" id="login" *ngIf="showLogin">
-                    <form>
-                        <!-- TODO: Add forgot password functionality -->
-                        <p class="label">Login</p>
-                        <input type="email" name="EmailId" placeholder="Email" required>
-                        <input type="password" name="Password"  placeholder="Passwort" required>
-                        <button (click)="onLogin()">Einloggen</button>
-                        <p><a href="#signup">Passwort zurücksetzen</a></p> <!-- TODO: Implement password reset -->
-                        <p><a href="#signup">Registrieren</a></p>
-                    </form>
-                </div>
+      <div class="main">
+        <div class="signup" id="signup" *ngIf="!showLogin">
+          <form (ngSubmit)="addUser()">
+            <p class="label">Registrierung</p>
+            <input type="text" name="lastName" id="lastName" [(ngModel)]="lastName" placeholder="Nachname" required>
+            <input type="text" name="firstName" id="firstName" [(ngModel)]="firstName" placeholder="Vorname" required>
+            <input type="email" name="email" id="email" [(ngModel)]="email" placeholder="Email" required>
+            <input type="password" name="password" id="password" [(ngModel)]="password" placeholder="Passwort" required>
+            <input type="password" name="confirmPassword" id="confirmPassword" [(ngModel)]="confirmPassword" placeholder="Passwort bestätigen" required>
+            <div *ngIf="loginForm.errors?.['mismatch']">
+                Die Passwörter stimmen nicht überein.
+            </div>
+            <button type="submit">Account erstellen</button>
+            <p>Bereits einen Account <br> erstellt? <a href="#login" (click)="showLoginForm($event)">Hier Einloggen</a></p>
+          </form>
         </div>
+  
+        <div class="login" id="login" *ngIf="showLogin">
+          <form (ngSubmit)="onLogin()">
+            <p class="label">Login</p>
+            <input type="email" name="email" id="loginEmail" [(ngModel)]="loginEmail" placeholder="Email" required>
+            <input type="password" name="password" id="loginPassword" [(ngModel)]="loginPassword" placeholder="Passwort" required>
+            <button type="submit">Einloggen</button>
+            <p><a href="#signup" (click)="showSignupForm($event)">Passwort zurücksetzen</a></p>
+            <p><a href="#signup" (click)="showSignupForm($event)">Registrieren</a></p>
+          </form>
+        </div>
+      </div>
     </body>
-</div>
+  </div>
+  
