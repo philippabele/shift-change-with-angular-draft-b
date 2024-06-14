@@ -1,40 +1,97 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
+import { UserService } from '../../user.service';
+import { validateForm } from '../../validators/form.validator';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent{
+export class LoginComponent {
 
-  loginObj: any = {
-      "EmailId": "",
-      "Password": ""
-  };
+  lastName: string = '';
+  firstName: string = '';
+  email: string = '';
+  password: string = '';
+  confirmPassword: string = '';
+
+  loginEmail: string = '';
+  loginPassword: string = '';
 
   showLogin: boolean = false;
 
-  constructor(private http: HttpClient, private router: Router){}
+  loginForm: FormGroup;
 
-  onLogin(){
-      this.http.post('https://freeapi.gerasim.in/api/User/Login', this.loginObj).subscribe((res:any)=>{
-        if(res.result){
-          alert('login successfull');
-          localStorage.setItem('loginToken', res.data.token);
-          this.router.navigateByUrl('/home');
-        }else{
-          // Show error message
-          alert(res.message);
-        }
-      })
+  constructor(private userService: UserService, private snackBar: MatSnackBar) {
+    this.loginForm = new FormGroup({
+      password: new FormControl('', Validators.required),
+      confirmPassword: new FormControl('', Validators.required)
+    }, { validators: this.passwordMatchValidator });
+  }
+
+  passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
+    const passwordControl = control.get('password');
+    const confirmPasswordControl = control.get('confirmPassword');
+    if (passwordControl && confirmPasswordControl) {
+      return passwordControl.value === confirmPasswordControl.value
+        ? null : { 'mismatch': true };
     }
+    return null;
+  }
+
+  addUser() {
+    validateForm();
+  
+    const user = {
+      lastName: this.lastName,
+      firstName: this.firstName,
+      email: this.email,
+      password: this.password
+    };
+  
+    this.userService.addUser(user).subscribe(response => {
+      console.log('Benutzer hinzugefügt:', response);
+      this.snackBar.open('Registrierung erfolgreich!', '', { duration: 2000 });
+      this.resetForm();
+    }, error => {
+      if (error.status === 409) {
+        this.snackBar.open('Ein Benutzer mit dieser E-Mail-Adresse existiert bereits.', '', { duration: 5000 });
+      } else {
+        console.error('Fehler beim Hinzufügen des Benutzers:', error);
+      }
+    });
+  }
+  
+  onLogin() {
+    validateForm();
+  
+    const credentials = {
+      email: this.loginEmail,
+      password: this.loginPassword
+    };
+  
+    this.userService.loginUser(credentials).subscribe(response => {
+      console.log('Login erfolgreich:', response);
+      // Weitere Login-Logik hier
+    }, error => {
+      console.error('Fehler beim Login:', error);
+    });
+  }
 
   showLoginForm(event: Event) {
     event.preventDefault();
     this.showLogin = true;
   }
 
+  showSignupForm(event: Event) {
+    event.preventDefault();
+    this.showLogin = false;
+  }
+
+  resetForm() {
+    this.loginForm.reset();
+  }
 }
