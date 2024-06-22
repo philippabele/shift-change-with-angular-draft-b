@@ -1,6 +1,10 @@
 \chapter{Entwicklung der User Experience mit Verwendung des Google Design Sprints}
 
-Die Entwicklung eines nutzerfreundlichen und effektiven UX-Design-Konzepts zur Abstimmung von Schichtwechseln wurde mithilfe des GDS gemacht. Dieser ist ursprünglich für fünf Tage entwickelt worden, um Probleme zu lösen und neue Ideen zu testen. Da der GDS als Einzelperson durchgeführt wurde, wurde er in diesem Projekt zeitlich angepasst.
+Die Entwicklung eines nutzerfreundlichen und effektiven UX-Design-Konzepts zur Abstimmung von Schichtwechseln wurde mithilfe des GDS realisiert. Ursprünglich wurde der GDS für einen Zeitraum von fünf Tagen entwickelt, um schnell Lösungen für komplexe Probleme zu finden und neue Ideen zu testen. In diesem Projekt wurde der GDS aufgrund der Durchführung durch eine Einzelperson angepasst.
+
+Die Phasen 4 und 5 des GDS, die normalerweise die Entwicklung eines Prototypen und das Testen umfassen, wurden modifiziert. Stattdessen wurde ein umfangreiches Bedienungskonzept entwickelt, auf dessen Grundlage eine Nutzerumfrage durchgeführt wurde (siehe Kapitel~\ref{chap:nutzerumfrage}) .
+Die Ergebnisse dieser Umfrage wurden anschließend genutzt, um den Prototypen zu erstellen.
+%(siehe Kapitel~\ref{chap:prototyp}) 
 
 \section{Phase 1: Verstehen und Definieren}
 In der ersten Phase werden die benötigten Informationen gesammelt und analysiert, um das Problem umfassend zu verstehen und klar zu definieren. Die Problemstellung und Zielsetzung wurden bereits in der Einleitung ausführlich behandelt, daher wird in diesem Kapitel direkt auf die praktische Anwendung der nächsten Phasen eingegangen.
@@ -17,13 +21,10 @@ Die erste Version der Übersichtsseite war zunächst für einen Desktop ausgeleg
     \label{Version1_Desktop}
 \end{figure}
 
-Über den User auf der rechten Seite im Header kommt der Nutzer zu der Einstellungsseite, über den Namen der Anwendung links im Header wird der Nutzer wieder auf die Übersichtsseite zurückgeleitet. 
-Auf dieser ist groß der Kalender des aktuellen Monats zu sehen. 
-Links über dem Kalender steht der Monat, welcher aktuell zu sehen ist, über die Buttons daneben kann zum nächsten oder vorherigen Monat gesprungen werden. 
-Rechts über dem Kalender ist der Button “Neues Tauschangebot erstellen” platziert, worüber der User eine neue Anfrage zum Schichttausch erstellen kann. 
-Direkt über dem Kalender sind die Wochentage ausgeschrieben und das Wochenende im Kalender in einem hellen Grauton hinterlegt, um es leicht von der restlichen Woche abzuheben. 
-Im Kalender sind bereits Tauschangebote eingetragen, welche das Schema der Liste aus WhatsApp haben. 
-Durch das anklicken dieser, kann der Nutzer die Tauschanfrage annehmen oder das Tauschen wieder abbrechen und zur Übersichtsseite zurückkehren.
+Im oberen Bereich der Seite befindet sich der Header. 
+Links darunter hat der Nutzer die Möglichkeit zwischen den Monaten zu navigieren. 
+Rechts unter dem Header befindet sich “Neues Tauschangebot erstellen” Button, mit dem Nutzer neue Tauschangebote erstellen können. 
+Zentral auf der Seite ist der Kalender des aktuellen Monats groß dargestellt, die Wochentage sind darüber ausgeschrieben.
 
 Bei der Übertragung des Designs in die Handy-Version wurden einige Schwachstellen identifiziert. Die Darstellung des Desktop-Designs auf dem Handy führt dazu, dass die Schrift aufgrund der kleinen Größe schlecht lesbar war (siehe Abbildung \ref{Version12_Handy}). 
 
@@ -54,4 +55,48 @@ Des weiteren wurde die Hauptfarbe von einem hellen Blau zu einem Orange gewechse
 
 Für die dritte Version wurde sich letztendlich entschieden. Darauf aufbauend wurden die weiteren Seiten der Anwendung im Light Mode gestaltet.
 
-\section{Nutzerumfrage}
+\section{Phase 4: Entwicklung des Bedienungskonzepts}
+\label{sec:bedienungskonzept}
+Um den Nutzern eine bessere Vorstellung von der UX zu vermitteln, wurden zwei unterschiedliche Farbpaletten erstellt: eine für den Light Mode und eine für den Dark Mode (siehe Abbildung \ref{Farbpalette}).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[clip,width=0.9\linewidth]{images/Farbpalette.png}
+    \caption[Farbpalette für den Light Mode und Dark Mode]{Farbpalette für den Light Mode und Dark Mode}
+    \label{Farbpalette}
+\end{figure}
+
+Die Farbpalette für den Light Mode besteht aus verschiedenen Orangetönen und einem Braun. Die Hintergrundfarbe des Dark Modes ist ein dunkles Blau, Orange wird nur noch als Akzentfarbe verwendet, ansonsten wird ein helleres Blau genutzt.
+Die Schriftart "Aptos" wurde aufgrund ihrer Lesbarkeit und Ästhetik ausgewählt.
+
+Ein zentrales Element des UX Designs war die Entwicklung eines klaren und intuitiven Bedienungskonzepts. Ziel war es, eine benutzerfreundliche Navigation zu schaffen, die es den Nutzern ermöglicht, alle Funktionen der Anwendung schnell und einfach zu erreichen.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[clip,width=0.9\linewidth]{images/Bedienungskonzept_V1.png}
+    \caption[Bedienungskonzept der Anwendung]{Bedienungskonzept der Anwendung}
+    \label{Bedienungskonzept_V1}
+\end{figure}
+
+Nachdem sich der Nutzer registriert und anschließend erfolgreich angemeldet hat, gelangt er auf die zentrale Übersichtsseite, wie in Abbildung \ref{Bedienungskonzept_V1} dargestellt. 
+Diese ermöglicht den Zugang zu allen anderen Seiten der Anwendung. 
+Über die User-Kennung im Header gelangt der Nutzer zu einer Einstellungsseite. 
+Dort kann er seine persönlichen Daten ändern und die bereits getauschten Schichten einsehen. 
+Durch Klicken auf den Namen der Anwendung "Schichtentauschbörse" im Header gelangt er jederzeit zurück zur Übersicht.
+
+Möchte ein Nutzer eine neue Tauschanfrage erstellen, ist das über den Button direkt unter dem Header möglich. 
+Dabei wird eine neue Seite aufgerufen, auf der die gebotene und gesuchte Schicht aus einem Dropdown-Menü ausgewählt werden können. 
+Alternativ kann der Nutzer auch eine bestimmte Uhrzeit eingeben, falls eine spezifische Zeit gewünscht ist. 
+Wenn der Nutzer seine Anfrage doch nicht stellen möchte, kann er den Vorgang abbrechen und gelangt zurück zur Übersichtsseite. 
+Mit dem Drücken des „Erstellen“-Buttons wird die neue Tauschanfrage finalisiert und im Kalender für alle Nutzer sichtbar.
+
+Klickt ein Nutzer im Kalender auf eine Anfrage, kann er das Annehmen der Tauschanfrage entweder über den Button „Abbrechen“ beenden oder über den Button „Tauschen“ die Schicht tauschen. 
+Nach dem Annehmen verschwindet die Tauschanfrage aus dem Kalender und wird in den Einstellungen unter „Meine getauschten Schichten“ angezeigt.
+
+Zusätzlich wurde eine alternative Dark Mode-Version der Übersichtsseite erstellt, um unterschiedliche Präferenzen der Nutzer einzubinden.
+
+\section{Phase 5: Nutzerumfrage}
+\label{chap:nutzerumfrage}
+\subsection{Methodik und Durchführung der Nutzerumfrage}
+
+\subsection{Auswertung und Analyse der Nutzerumfrage}
