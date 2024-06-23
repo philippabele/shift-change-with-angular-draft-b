@@ -78,7 +78,9 @@ Diese Daten liefern wertvolle Einblicke in die Nutzerinteraktion und ermögliche
   
 Durch die Kombination dieser Methoden können umfassende Einblicke in die Stärken und Schwächen der User Experience gewonnen werden, die zur kontinuierlichen Verbesserung des Produkts beitragen.
 
-\section{Das Angular-Framework}
+\section{Technologien}
+
+\subsection{Das Angular-Framework}
 Angular ist eine Plattform zur Entwicklung von Webanwendungen, die auf \ac{TS} basiert. 
 Mit Angular können Single Page Applications für Web-, Mobil- und Desktop-Anwendungen entwickelt werden. 
 Es ist Open Source und wird von Google unterstützt, was bedeutet, dass es kostenlos verwendet werden kann und von einer großen Entwickler-Community gepflegt wird. 
@@ -111,3 +113,33 @@ Neben Unit-Tests gibt es auch End-to-End-Tests, die das Verhalten der Anwendung 
 Der Routing-Service ermöglicht es verschiedene Ansichten basierend auf der URL der Anwendung zu laden. 
 Durch die Definition von Routen und deren Zuordnung zu spezifischen Komponenten ermöglicht Angular eine klare Strukturierung und Navigation innerhalb der Anwendung, was insbesondere für komplexe Single Page Applications entscheidend ist. 
 Routen können parameterisiert werden oder der Zugriff auf bestimmte Routen kann durch Guards gesteuert werden \cite{angular_routes}.
+
+\subsection{MongoDB}
+MongoDB ist eine dokumentenorientierte NoSQL-Datenbank und entstand 2007 aus einem Platform-as-a-Service-Projekt von dem Start Up 10gen, das auf automatisiertes Infrastrukturmanagement abzielte. 
+Aufgrund der Ablehnung durch Entwickler, die Kontrolle über ihre Technologie-Stacks zu verlieren, fokussierte sich 10gen auf die Datenbank und benannte sich in MongoDB, Inc. um. 
+MongoDB wird als Open-Source-Projekt entwickelt, wobei die Community zur Mitarbeit ermutigt wird, das Geschäftsmodell umfasst die Unterstützung der Open-Source-Entwicklung und das Anbieten von Abonnementdiensten \cite[S.5 f.]{Banker2016MongoDB}.
+
+MongoDB wurde zur schnellen Entwicklung von Webanwendungen und Internet-Infrastruktur designed. 
+Es ist möglich, ein strukturiertes Dokument in der Datenbank zu speichern, ohne bei der Erstellung der Datenbank schon wissen zu müssen, wie die Datenstruktur aussehen wird oder neue Tabellen erstellen zu müssen, wenn sich die Daten ändern. 
+Die Struktur wird durch den Code der Anwendung bestimmt. Außerdem ist es, wenn für die Speicherung der Datenmenge mehr als eine Datenbank benötigt wird, mit MongoDB deutlich einfacher und performante diese zu skalieren, als bei einer relationalen Datenbank \cite[S.4 ff.]{Banker2016MongoDB}. 
+
+Intern speichert MongoDB die Daten als Binary \ac{JSON}, eine Struktur, die JSON ähnelt, jedoch für die Speicherung vieler Dokumente optimiert ist. 
+Nach einer Abfrage werden die Ergebnisse in eine leicht lesbare Datenstruktur übersetzt, das Dokumentenformat JSON, das aus Schlüsseln und Werten besteht (für Beispiel siehe Abbildung \ref{MongoDB_Document}). 
+Während relationale Datenbanken Tabellen verwenden, nutzt MongoDB stattdessen Kollektionen \cite[S.7]{Banker2016MongoDB}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[clip,width=0.z5\linewidth]{images/MongoDB_Document.png}
+    \caption[Beispiel eines Dokuments in einer MongoDB]{Beispiel eines Dokuments in einer MongoDB}
+    \label{MongoDB_Document}
+\end{figure}
+
+Insgesamt bietet MongoDB eine leistungsfähige, flexible und skalierbare Lösung für die Verwaltung komplexer und dynamischer Datenmodelle, was sie ideal für moderne Webanwendungen macht.
+
+\subsection{Node.js}
+Node.js ist eine serverseitige Laufzeitumgebung, die auf der V8-JavaScript-Engine von Google Chrome basiert und die Ausführung von JavaScript-Code außerhalb des Browsers ermöglicht. 
+Entwickelt von Ryan Dahl im Jahr 2009, hat sich Node.js schnell als leistungsfähige Plattform für die Erstellung von serverseitigen Anwendungen etabliert \cite[S.3 ff.]{Cantelon2014}. 
+Ein wesentliches Merkmal von Node.js ist sein ereignisgesteuertes, nicht-blockierendes I/O-Modell, das eine effiziente Verarbeitung gleichzeitiger Verbindungen ermöglicht \cite{Tilkov2010}. 
+Diese Architektur ist besonders für Anwendungen geeignet, die häufige I/O-Operationen ausführen, wie beispielsweise APIs oder kleine Webserver. 
+Ein weiterer Vorteil von Node.js ist die Nutzung von JavaScript sowohl auf der Client- als auch auf der Serverseite, was zu einer einheitlichen Codebasis und vereinfachten Entwicklungsprozessen führt . 
+Die Kombination von Angular und Node.js bietet daher eine schnelle und effiziente Datenverarbeitung sowie eine einheitliche Entwicklungsumgebung \cite[S.5 ff.]{Casciaro2020node}.
