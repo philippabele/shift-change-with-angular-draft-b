@@ -1,0 +1,88 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 400px;
+    margin: auto;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+#shift {
+    background: rgba(215, 140, 61, 0.5);
+    margin-top: 2%;
+}
+
+#comment,
+#button {
+    border: none;
+}
+
+#comment {
+    height: 6em;
+}
+
+mat-form-field.comment {
+    font-size: 15px;
+  }
+
+.dropdown {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.material-icons {
+    color: #fff;
+    margin-right: 4%;
+    font-size: 5em;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.cancel,
+.submit {
+    border: none;
+    border-radius: 5px;
+    height: 2.3em;
+    width: 30%;
+    font-size: 1.3em;
+}
+
+.cancel {
+    background-color: rgb(174, 174, 174);
+    color: #000;
+}
+
+.submit {
+    background-color: rgb(142, 217, 115);
+    color: #fff;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) and (max-height: 800px) {
+    .container {
+        max-width: 85%;
+    }
+
+    .cancel,
+    .submit {
+        width: 44%;
+    }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    #shift {
+        background-color: rgb(61, 78, 100);
+    }
+    .submit {
+        background-color: rgb(100, 153, 80);
+    }
+}

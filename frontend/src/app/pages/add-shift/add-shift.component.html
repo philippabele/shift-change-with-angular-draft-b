@@ -1,0 +1,69 @@
+<form [formGroup]="schichtForm" (ngSubmit)="onSubmit()">
+    <div class="container" id="shift">
+        <mat-form-field appearance="fill">
+            <mat-label>Datum</mat-label>
+            <input matInput [matDatepicker]="picker" [min]="today" formControlName="datum">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <div class="dropdown">
+            <i class="material-icons">access_time</i>
+            <mat-form-field class="field" appearance="fill">
+                <mat-label>Gebotene Schicht</mat-label>
+                <mat-select formControlName="geboteneSchicht">
+                    <mat-option value="früh">Frühschicht</mat-option>
+                    <mat-option value="spät">Spätschicht</mat-option>
+                    <mat-option value="nacht">Nachtschicht</mat-option>
+                    <mat-option value="customTimeOffered">Benutzerdefinierte Uhrzeit</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <mat-form-field class="field" appearance="fill"
+            *ngIf="schichtForm.get('geboteneSchicht')?.value === 'customTimeOffered'">
+            <mat-label>Benutzerdefinierte Uhrzeit</mat-label>
+            <input matInput type="time" formControlName="customTimeOffered">
+        </mat-form-field>
+
+        <div class="dropdown">
+            <i class="material-icons">search</i>
+            <mat-form-field class="field" appearance="fill">
+                <mat-label>Gesuchte Schicht</mat-label>
+                <mat-select formControlName="gesuchteSchicht">
+                    <mat-option value="früh">Frühschicht</mat-option>
+                    <mat-option value="spät">Spätschicht</mat-option>
+                    <mat-option value="nacht">Nachtschicht</mat-option>
+                    <mat-option value="früher">früher</mat-option>
+                    <mat-option value="später">später</mat-option>
+                    <mat-option value="egal">egal</mat-option>
+                    <mat-option value="customTimeRequested">Benutzerdefinierte Uhrzeit</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <mat-form-field class="field" appearance="fill"
+            *ngIf="schichtForm.get('gesuchteSchicht')?.value === 'customTimeRequested'">
+            <mat-label>Benutzerdefinierte Uhrzeit</mat-label>
+            <input matInput type="time" formControlName="customTimeRequested">
+        </mat-form-field>
+
+        <mat-checkbox formControlName="trainee" class="checkbox">Trainee bei der Schicht dabei?</mat-checkbox>
+        <mat-checkbox formControlName="dringend" class="checkbox">Dringend?</mat-checkbox>
+    </div>
+
+    <div class="container" id="comment">
+        <mat-form-field class="comment" appearance="fill" floatLabel="always">
+            <mat-label>Kommentar</mat-label>
+            <textarea matInput formControlName="kommentar"
+                placeholder="Details hinzufügen (z.B. wie viel früher die gesuchte Schicht beginnen soll)"></textarea>
+        </mat-form-field>
+    </div>
+
+    <div class="container" id="button">
+        <div class="button-group">
+            <button mat-button class="cancel" type="button" (click)="onCancel()">Abbrechen</button>
+            <button mat-raised-button class="submit" type="submit">Erstellen</button>
+        </div>
+    </div>
+</form>
