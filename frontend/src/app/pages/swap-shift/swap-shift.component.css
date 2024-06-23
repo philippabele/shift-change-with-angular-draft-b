@@ -1,0 +1,87 @@
+.swap-shift-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 400px;
+    margin: auto;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.swap-shift-box {
+    position: relative;
+    padding: 20px;
+    padding-top: 20%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: rgba(215, 140, 61, 0.5);
+    margin-top: 2%;
+    color: #fff;
+}
+
+.swap-shift-box.urgent {
+    border-color: red;
+}
+
+.swap-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-name {
+    position: absolute;
+    top: 19%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    margin: 0;
+
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+
+    background-color: rgb(107 70 30);
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: 600;
+
+    align-items: center;
+}
+
+.shift-icons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.shift-item {
+    display: flex;
+    align-items: center;
+}
+
+
+.shift-date {
+    margin-bottom: 20px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+    height: 2.3em;
+    width: 48%;
+    font-size: 1.3em;
+}
+
+.actions.accept{
+    color: green;
+}
