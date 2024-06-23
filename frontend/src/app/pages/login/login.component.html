@@ -1,33 +1,78 @@
 <div class="parent">
-    <body>
-      <div class="main">
-        <div class="signup" id="signup" *ngIf="!showLogin">
-          <form (ngSubmit)="addUser()">
-            <p class="label">Registrierung</p>
-            <input type="text" name="lastName" id="lastName" [(ngModel)]="lastName" placeholder="Nachname" required>
-            <input type="text" name="firstName" id="firstName" [(ngModel)]="firstName" placeholder="Vorname" required>
-            <input type="email" name="email" id="email" [(ngModel)]="email" placeholder="Email" required>
-            <input type="password" name="password" id="password" [(ngModel)]="password" placeholder="Passwort" required>
-            <input type="password" name="confirmPassword" id="confirmPassword" [(ngModel)]="confirmPassword" placeholder="Passwort bestätigen" required>
-            <div *ngIf="loginForm.errors?.['mismatch']">
-                Die Passwörter stimmen nicht überein.
-            </div>
-            <button type="submit">Account erstellen</button>
-            <p>Bereits einen Account <br> erstellt? <a href="#login" (click)="showLoginForm($event)">Hier Einloggen</a></p>
-          </form>
+  <div class="main">
+    <div class="signup" id="signup" *ngIf="!showLogin">
+      <form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && addUser()" #f="ngForm">
+        <p class="label">Registrierung</p>
+        <div class="input-group">
+          <input class="form-control" formControlName="lastName" required [ngClass]="{ 'is-invalid': f.submitted && registerForm.get('lastName').errors }" placeholder="Nachname">
+          <div *ngIf="registerForm.get('lastName').errors && f.submitted" class="error-message">
+            Nachname ist erforderlich.
+          </div>
         </div>
-  
-        <div class="login" id="login" *ngIf="showLogin">
-          <form (ngSubmit)="onLogin()">
-            <p class="label">Login</p>
-            <input type="email" name="email" id="loginEmail" [(ngModel)]="loginEmail" placeholder="Email" required>
-            <input type="password" name="password" id="loginPassword" [(ngModel)]="loginPassword" placeholder="Passwort" required>
-            <button type="submit">Einloggen</button>
-            <p><a href="#signup" (click)="showSignupForm($event)">Passwort zurücksetzen</a></p>
-            <p><a href="#signup" (click)="showSignupForm($event)">Registrieren</a></p>
-          </form>
+        <div class="input-group">
+          <input class="form-control" formControlName="firstName" required [ngClass]="{ 'is-invalid': f.submitted && registerForm.get('firstName').errors }" placeholder="Vorname">
+          <div *ngIf="registerForm.get('firstName').errors && f.submitted" class="error-message">
+            Vorname ist erforderlich.
+          </div>
         </div>
-      </div>
-    </body>
+        <div class="input-group">
+          <input type="email" formControlName="email" placeholder="Email">
+          <div
+            *ngIf="registerForm.get('email').invalid && (registerForm.get('email').dirty || registerForm.get('email').touched)"
+            class="error-message">
+            <div *ngIf="registerForm.get('email').errors.required">Email ist erforderlich.</div>
+            <div *ngIf="registerForm.get('email').errors.email">Ungültige Email-Adresse.</div>
+          </div>
+        </div>
+        <div class="input-group">
+          <input type="password" formControlName="password" placeholder="Passwort">
+          <div *ngIf="registerForm.get('password').invalid && (registerForm.get('password').dirty || registerForm.get('password').touched)" class="error-message">
+            <div *ngIf="registerForm.get('password').errors.required">Passwort ist erforderlich.</div>
+            <div *ngIf="registerForm.get('password').errors?.passwordStrength && !registerForm.get('password').errors.required">Das Passwort erfüllt nicht die Sicherheitsanforderungen.</div>
+          </div>
+        </div>
+        <div class="input-group">
+          <input type="password" formControlName="confirmPassword" placeholder="Passwort bestätigen">
+          <div
+            *ngIf="registerForm.hasError('mismatch') && (registerForm.get('confirmPassword').dirty || registerForm.get('confirmPassword').touched)"
+            class="error-message">
+            Die Passwörter stimmen nicht überein.
+          </div>
+        </div>
+        <div class="input-group">
+          <button type="submit" [disabled]="!registerForm.valid">Account erstellen</button>
+          <div *ngIf="registrationSubmitted && !registerForm.valid" class="error-message">
+            Bitte füllen Sie alle erforderlichen Felder aus.
+          </div>
+        </div>
+        <p>Bereits einen Account erstellt? <br> <a href="#" (click)="showLoginForm($event)">Hier Einloggen</a></p>
+      </form>
+    </div>
+
+
+    <div class="login" id="login" *ngIf="showLogin">
+      <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onLogin()" #f="ngForm">
+        <p class="label">Login</p>
+        <div class="input-group">
+          <input type="email" formControlName="email" placeholder="Email">
+          <div
+            *ngIf="loginForm.get('email').invalid && (loginForm.get('email').dirty || loginForm.get('email').touched)"
+            class="error-message">
+            <div *ngIf="loginForm.get('email').errors.required">Email ist erforderlich.</div>
+            <div *ngIf="loginForm.get('email').errors.email">Ungültige Email-Adresse.</div>
+          </div>
+        </div>
+        <div class="input-group">
+          <input type="password" formControlName="password" placeholder="Passwort">
+          <div
+            *ngIf="loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)"
+            class="error-message">
+            <div *ngIf="loginForm.get('password').errors.required">Passwort ist erforderlich.</div>
+          </div>
+        </div>
+        <button type="submit" [disabled]="!loginForm.valid">Login</button>
+        <p>Noch keinen Account erstellt?<br> <a href="#" (click)="showSignupForm($event)">Hier Registrieren</a></p>
+      </form>
+    </div>
   </div>
-  
+</div>

@@ -7,9 +7,12 @@ const cors = require('cors');
 const app = express();
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:4200', 
+  credentials: true 
+}));
 
-mongoose.connect('mongodb://127.0.0.1:27017/shiftChange', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://127.0.0.1:27017/shiftChange', {})
   .then(() => console.log('Database connected!'))
   .catch(err => console.error('Error connecting to database:', err));
 
@@ -18,9 +21,9 @@ app.post('/api/register', async (req, res) => {
   const user = new User(req.body);
   try {
     await user.save();
-    res.status(201).send(user);
+    res.status(201).json(user); 
   } catch (error) {
-    res.status(400).send(error);
+    res.status(400).json({ message: 'Fehler bei der Registrierung', error: error.message }); 
   }
 });
 
@@ -30,15 +33,15 @@ app.post('/api/login', async (req, res) => {
   const user = await User.findOne({ email });
 
   if (!user) {
-    return res.status(400).send('Benutzer nicht gefunden');
+    return res.status(400).json({ message: 'Benutzer nicht gefunden' }); 
   }
 
   const isMatch = await user.comparePassword(password);
   if (!isMatch) {
-    return res.status(400).send('Falsches Passwort');
+    return res.status(400).json({ message: 'Falsches Passwort' });
   }
 
-  res.status(200).send('Login erfolgreich');
+  res.status(200).json({ message: 'Login erfolgreich' }); 
 });
 
 app.listen(3000, () => console.log('Server is running on port 3000'));
