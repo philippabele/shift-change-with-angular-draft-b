@@ -1,17 +1,24 @@
-mat-toolbar-row{
+mat-toolbar-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 64px;
     padding: 0 24px;
     background-color: rgb(215 140 61);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
-.homeLink{
+
+.homeLink {
     font-size: 1.1em;
 }
-.homeLink:hover{
+
+.homeLink:hover {
     color: rgb(0, 0, 0, 0.7);
 }
+
 .homeLink:active {
     cursor: pointer;
 }
@@ -31,9 +38,43 @@ mat-toolbar-row{
     text-align: center;
     font-size: 1em;
 }
+
 .settingsLink:active {
     cursor: pointer;
 }
-.settingsLink:hover{
+
+.settingsLink:hover {
     background-color: rgb(97, 63, 27);
+}
+
+.cancel {
+    background-color: rgb(174, 174, 174);
+    color: #000;
+}
+
+.accept {
+    background-color: rgb(142, 217, 115);
+    color: #fff;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) and (max-height: 800px) {
+    mat-toolbar-row {
+        height: 58px;
+    }
+    .homeLink {
+        font-size: 0.9em;
+    }
+    .settingsLink {
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+    }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    .settingsLink {
+        background-color: rgb(26, 31, 40);
+    }
 }

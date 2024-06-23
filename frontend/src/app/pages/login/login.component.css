@@ -1,4 +1,4 @@
-.parent{
+.parent {
 	margin: 0;
 	padding: 0;
 	display: flex;
@@ -7,9 +7,10 @@
 	min-height: 100vh;
 	background-color: #ebc59e;
 }
-.main{
-	width: 130%;
-  	height: 50%;
+
+.main {
+	width: 35%;
+	height: 40%;
 	background: rgba(107, 70, 30, 0.4);
 	overflow: hidden;
 	border-radius: 20px;
@@ -19,20 +20,15 @@
 	align-items: center;
 }
 
-.signup{
+.signup,
+.login {
 	position: relative;
-	width:100%;
-	height: 100%;
-	background: rgba(107, 70, 30, 0.4);
-}
-.login{
-	position: relative;
-	width:100%;
+	width: 100%;
 	height: 100%;
 	background: rgba(107, 70, 30, 0.4);
 }
 
-.label{
+.label {
 	color: #fff;
 	font-size: 2.3em;
 	justify-content: left;
@@ -42,31 +38,56 @@
 	margin-top: 8%;
 	transition: .5s ease-in-out;
 }
-input{
+
+.input-group {
+	position: relative;
 	width: 80%;
+	margin: 20px auto;
+	margin-left: 8%;
+	display: flex;
+	align-items: center;
+}
+
+.input-group input {
+	width: 100%;
 	height: 10px;
 	background: rgba(215, 140, 61, 0.4);
-	justify-content: center;
-	display: flex;
-	margin: 20px auto;
 	padding: 12px;
 	border: none;
 	outline: none;
 	border-radius: 2px;
 	color: #fff;
 }
-input::placeholder {
-    color: #fff;
+
+.input-group input::placeholder {
+	color: #fff;
 }
-.invalid-input {
-    border: 2px solid #9b0808;
-	border-radius: 2px;
+
+.input-group .toggle-password {
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	transform: translateY(-50%);
+	cursor: pointer;
+	color: #fff;
 }
-button{
+
+input::-ms-reveal,
+input::-webkit-reveal {
+	display: none;
+}
+
+mat-icon {
+	cursor: pointer;
+	position: absolute;
+	right: 10px;
+	color: #fff;
+}
+
+button {
 	width: 60%;
 	height: 40px;
 	margin: 10px auto;
-	justify-content: center;
 	display: block;
 	color: #fff;
 	background: #aeaeae;
@@ -79,13 +100,13 @@ button{
 	transition: .2s ease-in;
 	cursor: pointer;
 }
-button:hover{
+
+button:hover {
 	background: #918e8e;
 }
 
-p{
+p {
 	color: #fff;
-	justify-content: right;
 	display: block;
 	font-size: .8em;
 	margin-top: 30px;
@@ -93,6 +114,82 @@ p{
 	margin-top: 8%;
 	margin-bottom: 4%;
 }
-a{
+
+a {
 	color: #fff;
+}
+
+.error-message {
+	color: #920e0e;
+	font-size: 0.9em;
+	margin-top: -4%;
+	margin-bottom: -10px;
+	margin-left: 8%;
+}
+
+.input-group input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px rgba(215, 140, 61, 0.4) inset;
+	-webkit-text-fill-color: #fff !important;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) and (max-height: 800px) {
+	.main {
+		width: 85%;
+		height: 40%;
+	}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (min-height: 800px) {
+	.main {
+		width: 75%;
+		height: 40%;
+	}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (min-height: 1024px) {
+	.main {
+		width: 55%;
+		height: 40%;
+	}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (min-height: 1200px) {
+	.main {
+		width: 440px;
+		height: 30%;
+	}
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+	.parent {
+		background-color: rgb(26, 31, 40);
+		color: white;
+	}
+
+	.main {
+		background: rgba(132, 151, 176);
+		box-shadow: 5px 20px 50px rgba(132, 151, 176, 0.4);
+	}
+
+	.signup,
+	.login {
+		background: rgb(61, 78, 100);
+	}
+
+	.error-message {
+		color: #a33c3c;
+	}
+
+	.input-group input {
+		background: rgb(39, 48, 63);
+	}
+
+	.input-group input:-webkit-autofill {
+		-webkit-box-shadow: 0 0 0px 1000px rgb(39, 48, 63) inset;
+	}
 }

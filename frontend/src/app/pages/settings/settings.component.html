@@ -1,2 +1,44 @@
-<p>settings works!</p>
+<div class="parent">
+    <div class="main">
+        <div class="section">
+            <div class="heading">
+                <i class="material-icons">calendar_month</i>
+                Meine getauschten Schichten
+            </div>
+        </div>
+        <hr>
+
+        <div class="section-shift">
+            <p><strong class="date">14.01.2024</strong><br>
+                Neue Schicht: <strong>05:45</strong><br> Statt: 13:45</p>
+            <span class="user">AT</span>
+        </div>
+        <hr>
+
+        <div class="section">
+            <div class="heading">
+                <i class="material-icons">settings</i>
+                Persönliche Daten
+            </div>
+            <div class="input-group">
+                <label for="name" class="input-label">Nachname</label>
+                <input type="text" id="name" name="name" placeholder="{{ currentUser.firstName }}">
+            </div>
+            <div class="input-group">
+                <label for="firstName" class="input-label">Vorname</label>
+                <input type="text" id="firstName" name="firstName" placeholder="{{ currentUser.lastName }}">
+            </div>
+            <div class="input-group">
+                <label for="email" class="input-label">E-Mail-Adresse</label>
+                <input type="email" id="email" name="email" placeholder="{{ currentUser.email }}">
+            </div>
+            <button (click)="changeData()"> <i class="material-icons" id="icon-button">create</i>Ändern</button>
+        </div>
+        <hr>
+
+        <p class="export">Tauschangebote in den Kalender <u>exportieren</u></p>
+
+        <button mat-button (click)="logout()">Logout</button>
+    </div>
+</div>
 <router-outlet></router-outlet>

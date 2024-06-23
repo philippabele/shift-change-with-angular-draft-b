@@ -1,0 +1,181 @@
+.main {
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    margin: 15px auto;
+    font-size: 1.2em;
+}
+
+.material-icons {
+    margin-right: 3%;
+}
+
+hr {
+    color: rgb(174, 174, 174);
+}
+
+.section-shift {
+    position: relative;
+    background: rgba(215, 140, 61, 0.6);
+    overflow: hidden;
+    border-radius: 20px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+p {
+    color: #fff;
+    font-size: 0.8em;
+    margin: 3%;
+    line-height: 1.5;
+}
+
+.date {
+    color: #fff;
+    font-size: 1em;
+    line-height: 2.3;
+    margin-bottom: 10em;
+}
+
+.user {
+    position: absolute;
+    bottom: 4%;
+    right: 1%;
+    display: block;
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+    margin: 0%;
+
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+
+    background-color: rgb(107 70 30);
+    color: rgb(215, 140, 61);
+    text-align: center;
+    font-size: 1em;
+}
+
+.input-group {
+    position: left;
+    margin: 15px auto;
+}
+
+.input-group input {
+    width: 95%;
+    height: 10px;
+    background: rgba(215, 140, 61, 0.6);
+    padding: 12px;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    color: #fff;
+
+}
+
+.input-group input::placeholder {
+    color: #fff;
+}
+
+.input-label {
+    display: block;
+    margin-bottom: 1px;
+    text-align: left;
+}
+
+button {
+    width: 15%;
+    height: 20px;
+    margin: 10px 0 10px auto;
+    display: flex;
+    color: #fff;
+    background: rgb(132, 151, 176);
+    font-size: 0.8em;
+    margin-top: 2%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    transition: .2s ease-in;
+    cursor: pointer;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    align-items: center;
+    justify-content: center;
+}
+
+#icon-button {
+    font-size: 1.1em;
+}
+
+.export {
+    color: black;
+    margin-left: 0;
+    margin-top: 0;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) and (max-height: 800px) {
+    p {
+        font-size: 0.9em;
+    }
+
+    .input-label {
+        font-size: 0.7em;
+    }
+
+    .input-group input {
+        padding-right: 2%;
+    }
+
+    button {
+        width: 25%;
+        font-size: 0.85em;
+    }
+
+    .section-shift {
+        height: 10%;
+    }
+
+}
+/* Larger devices (600px and up) */
+@media only screen and (min-width: 600px) {
+    .input-group input {
+        width: 97%;
+    }
+
+    .input-label {
+        font-size: 0.8em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .section-shift {
+        height: 130px;
+    }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    .section-shift {
+        background: rgb(39, 48, 63);
+    }
+
+    .user {
+        background-color: rgb(26, 31, 40);
+    }
+
+    .input-group input {
+        background: rgb(39, 48, 63);
+    }
+
+    .export {
+        color: #fff;
+    }
+}
