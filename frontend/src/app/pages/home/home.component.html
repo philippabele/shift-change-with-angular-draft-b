@@ -1,0 +1,44 @@
+<div class="calendar-container">
+    <div class="header">
+        <div class="left-group">
+            <button class="previous" id="month-button" (click)="previousWeeks()">&lt;</button>
+            <span class="month-year">
+                <span class="month"><strong>{{ getFirstDateGermanMonthName() }}</strong>
+                    {{ currentYear }}</span> <button class="next" id="month-button" (click)="nextWeeks()">&gt;</button>
+            </span>
+            <div class="kw">
+                KW {{ displayedWeeks[0].days[0].date | date:'w' }} - KW {{ displayedWeeks[displayedWeeks.length -
+                1].days[0].date | date:'w' }}
+            </div>
+        </div>
+        <button class="add" (click)="add()"><i class="material-icons">add</i></button>
+    </div>
+    <table class="calendar-table">
+        <thead>
+            <tr>
+                <th *ngFor="let weekday of weekdays">
+                    {{ weekday }}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let week of displayedWeeks">
+                <td *ngFor="let day of week.days" class="date-table" [class.today]="isToday(day.date)">
+                    <span class="day">
+                        {{
+                        isValidDate(day.date) && day.date && (day.date | date:'MMMM') ===
+                        (displayedWeeks[0].days[0].date | date:'MMMM') ? (day.date | date:'dd') : ''
+                        }}
+                    </span>
+                    <span class="month"
+                        *ngIf="isValidDate(day.date) && day.date && (day.date | date:'MMMM') !== (displayedWeeks[0].days[0].date | date:'MMMM')">
+                        {{
+                        day.date ? (day.date | date:'dd.MM') : ''
+                        }}
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<router-outlet></router-outlet>

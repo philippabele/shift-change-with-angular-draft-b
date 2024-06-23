@@ -8,17 +8,17 @@ body {
     font-family: 'DM Sans', sans-serif;
 }
 
-/* Standard Light Mode */
 
+/* Standard Light Mode *//*
 body {
     background-color: white;
     color: black;
-}
+}*/
 
-/* Dark Mode */
+/* Dark Mode *//*
 @media (prefers-color-scheme: dark) {
     body {
         background-color: rgb(26,31,40);
         color: white;
     }
-}
+}*/
