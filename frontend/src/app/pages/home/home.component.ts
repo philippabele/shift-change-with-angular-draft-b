@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
     this.swapShifts = [
       { date: new Date(this.currentDate.getFullYear(), 5, 25), isSwapShift: true, user: 'FT', requestedShift: 'Frühschicht', offeredShift: '10:45', isUrgent: true, Trainee: true },
       { date: new Date(this.currentDate.getFullYear(), 5, 28), isSwapShift: true, user: 'AT', requestedShift: 'spät', offeredShift: '05:45' },
-      { date: new Date(this.currentDate.getFullYear(), 6, 2), isSwapShift: true, user: 'YW', requestedShift: 'früher', offeredShift: '10:45' }
+      { date: new Date(this.currentDate.getFullYear(), 6, 2), isSwapShift: true, user: 'YW', requestedShift: 'früh', offeredShift: '10:45' }
     ];
     this.loadCalendar();
   }
