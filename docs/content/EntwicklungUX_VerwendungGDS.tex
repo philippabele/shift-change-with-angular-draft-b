@@ -1,1 +1,149 @@
 \chapter{Entwicklung der User Experience mit Verwendung des Google Design Sprints}
+
+Die Entwicklung eines nutzerfreundlichen und effektiven UX-Design-Konzepts zur Abstimmung von Schichtwechseln wurde mithilfe des GDS realisiert. Ursprünglich wurde der GDS für einen Zeitraum von fünf Tagen entwickelt, um schnell Lösungen für komplexe Probleme zu finden und neue Ideen zu testen. In diesem Projekt wurde der GDS aufgrund der Durchführung durch eine Einzelperson angepasst.
+
+Die Phasen 4 und 5 des GDS, die normalerweise die Entwicklung eines Prototypen und das Testen umfassen, wurden modifiziert. Stattdessen wurde ein umfangreiches Bedienungskonzept entwickelt, auf dessen Grundlage eine Nutzerumfrage durchgeführt wurde (siehe Kapitel~\ref{chap:nutzerumfrage}) .
+Die Ergebnisse dieser Umfrage wurden anschließend genutzt, um den Prototypen zu erstellen.
+%(siehe Kapitel~\ref{chap:prototyp}) 
+
+\section{Phase 1: Verstehen und Definieren}
+In der ersten Phase werden die benötigten Informationen gesammelt und analysiert, um das Problem umfassend zu verstehen und klar zu definieren. Die Problemstellung und Zielsetzung wurden bereits in der Einleitung ausführlich behandelt, daher wird in diesem Kapitel direkt auf die praktische Anwendung der nächsten Phasen eingegangen.
+
+\section{Phase 2 und 3: Skizzieren und Auswahl der Idee}
+In der Skizzieren Phase beginnt der Prozess der Designerstellung. Hierbei wurden sich zunächst die benötigten Seiten überlegt, um die benötigten Aufgaben und Anforderungen zu erfüllen. Dazu gehört eine Übersichtsseite auf der alle aktuellen Tauschangebote stehen und worüber der Nutzer zu allen weiteren Seiten gelangt, z.B. die zum Hinzufügen und zum Annehmen eines Tauschangebots, sowie eine Seite, auf der der Nutzer seine angenommen Schichten sehen kann und individuelle Einstellungen vornehmen kann. 
+
+Die erste Version der Übersichtsseite war zunächst für einen Desktop ausgelegt (siehe Abbildung \ref{Version1_Desktop}). 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[clip,width=0.9\linewidth]{images/Version1_Desktop.png}
+    \caption[Erste Version der Übersichtsseite für den Desktop]{Erste Version der Übersichtsseite für den Desktop}
+    \label{Version1_Desktop}
+\end{figure}
+
+Im oberen Bereich der Seite befindet sich der Header. 
+Links darunter hat der Nutzer die Möglichkeit zwischen den Monaten zu navigieren. 
+Rechts unter dem Header befindet sich „Neues Tauschangebot erstellen“ Button, mit dem Nutzer neue Tauschangebote erstellen können. 
+Zentral auf der Seite ist der Kalender des aktuellen Monats groß dargestellt, die Wochentage sind darüber ausgeschrieben.
+
+Bei der Übertragung des Designs in die Handy-Version wurden einige Schwachstellen identifiziert. Die Darstellung des Desktop-Designs auf dem Handy führt dazu, dass die Schrift aufgrund der kleinen Größe schlecht lesbar war (siehe Abbildung \ref{Version12_Handy}). 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[clip,width=0.75\linewidth]{images/Version12_Handy.png}
+    \caption[Erste und zweite Version der Übersichtsseite für das Handy]{Erste und zweite Version der Übersichtsseite für das Handy}
+    \label{Version12_Handy}
+\end{figure}
+
+Da die meisten Nutzer die App wahrscheinlich auf dem Handy verwenden möchten, wurde das Design in Version 2 entsprechend angepasst.
+
+Um in der Kalenderübersicht die Tauschanfragen gut lesbar und nutzerfreundlich darzustellen, werden statt fünf Wochen nur noch zwei Wochen angezeigt (siehe Version 2 in Abbildung \ref{Version12_Handy}). 
+Aufgrund der schmaleren Handybildschirme wird ein Teil der Wörter durch Piktogramme ersetzt, z.B. wurde beim „Neues Tauschangebot erstellen“ Button der Text durch ein Plus ersetzt. Dadurch wird Platz gespart und die Funktion wird klarer erkannt. 
+Außerdem werden die Wochentage nicht mehr ausgeschrieben. Eine weitere Änderung ist, dass die Schichten in den gesuchten/gebotenen Zeit Blöcken am Tag abgebildet (siehe Version 2 in Abbildung \ref{Version12_Handy}).
+
+Allerdings wurde festgestellt, dass der Kalender unübersichtlich wird, wenn mehrere Tauschangebote an einem Tag sind oder wenn welche zum gleichen Zeitpunkt angefragt werden. 
+Deswegen wird eine weitere Version erstellt, in der die Schichten nicht mehr nach dem Zeitpunkt sortiert sind, sondern in einem Block organisiert, was eine bessere Übersicht ermöglicht (siehe Abbildung \ref{Version3_Handy}).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[clip,width=0.75\linewidth]{images/Version3_Handy.png}
+    \caption[Dritte Version der Übersichtsseite für das Handy, im Light Mode und Dark Mode]{Dritte Version der Übersichtsseite für das Handy, im Light Mode und Dark Mode}
+    \label{Version3_Handy}
+\end{figure}
+
+Des weiteren wurde die Hauptfarbe von einem hellen Blau zu einem Orange gewechselt, welches wärmer und aktiver wirkt. Da der Dark Mode in den letzten Jahren stark an Popularität zugenommen hat \cite{diva2020darkmode} wird für die Anwendung auch ein Farbkonzept erstellt (siehe Dark Mode in Abbildung \ref{Version3_Handy}). 
+
+Für die dritte Version wurde sich letztendlich entschieden. Darauf aufbauend wurden die weiteren Seiten der Anwendung im Light Mode gestaltet.
+
+\section{Phase 4: Entwicklung des Bedienungskonzepts}
+\label{sec:bedienungskonzept}
+Um den Nutzern eine bessere Vorstellung von der UX zu vermitteln, wurden zwei unterschiedliche Farbpaletten erstellt: eine für den Light Mode und eine für den Dark Mode (siehe Abbildung \ref{Farbpalette}).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[clip,width=0.9\linewidth]{images/Farbpalette.png}
+    \caption[Farbpalette für den Light Mode und Dark Mode]{Farbpalette für den Light Mode und Dark Mode}
+    \label{Farbpalette}
+\end{figure}
+
+Die Farbpalette für den Light Mode besteht aus verschiedenen Orangetönen und einem Braun. Die Hintergrundfarbe des Dark Modes ist ein dunkles Blau, Orange wird nur noch als Akzentfarbe verwendet, ansonsten wird ein helleres Blau genutzt.
+Die Schriftart „Aptos“ wurde aufgrund ihrer Lesbarkeit und Ästhetik ausgewählt.
+
+Ein zentrales Element des UX Designs war die Entwicklung eines klaren und intuitiven Bedienungskonzepts. Ziel war es, eine benutzerfreundliche Navigation zu schaffen, die es den Nutzern ermöglicht, alle Funktionen der Anwendung schnell und einfach zu erreichen.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[clip,width=1\linewidth]{images/Bedienungskonzept_V1.png}
+    \caption[Bedienungskonzept der Anwendung]{Bedienungskonzept der Anwendung}
+    \label{Bedienungskonzept_V1}
+\end{figure}
+
+Nachdem sich der Nutzer registriert und anschließend erfolgreich angemeldet hat, gelangt er auf die zentrale Übersichtsseite, wie in Abbildung \ref{Bedienungskonzept_V1} dargestellt. 
+Diese ermöglicht den Zugang zu allen anderen Seiten der Anwendung. 
+Über die User-Kennung im Header gelangt der Nutzer zu einer Einstellungsseite. 
+Dort kann er seine persönlichen Daten ändern und die bereits getauschten Schichten einsehen. 
+Durch Klicken auf den Namen der Anwendung „Schichtentauschbörse“ im Header gelangt er jederzeit zurück zur Übersicht.
+
+Möchte ein Nutzer eine neue Tauschanfrage erstellen, ist das über den Button direkt unter dem Header möglich. 
+Dabei wird eine neue Seite aufgerufen, auf der die gebotene und gesuchte Schicht aus einem Dropdown-Menü ausgewählt werden können. 
+Alternativ kann der Nutzer auch eine bestimmte Uhrzeit eingeben, falls eine spezifische Zeit gewünscht ist. 
+Wenn der Nutzer seine Anfrage doch nicht stellen möchte, kann er den Vorgang abbrechen und gelangt zurück zur Übersichtsseite. 
+Mit dem Drücken des „Erstellen“-Buttons wird die neue Tauschanfrage finalisiert und im Kalender für alle Nutzer sichtbar.
+
+Klickt ein Nutzer im Kalender auf eine Anfrage, kann er das Annehmen der Tauschanfrage entweder über den Button „Abbrechen“ beenden oder über den Button „Tauschen“ die Schicht tauschen. 
+Nach dem Annehmen verschwindet die Tauschanfrage aus dem Kalender und wird in den Einstellungen unter „Meine getauschten Schichten“ angezeigt.
+
+Zusätzlich wurde eine alternative Dark Mode-Version der Übersichtsseite erstellt, um unterschiedliche Präferenzen der Nutzer einzubinden.
+
+\section{Phase 5: Nutzerumfrage}
+\label{chap:nutzerumfrage}
+Die Farbpalette und die Übersicht über das Bedienungskonzept, für detailliertere Informationen siehe Abschnitt~\ref{sec:bedienungskonzept}, bilden die Grundlage für die Nutzerumfrage. Diese wurde als zentraler Bestandteil der Evaluierung des UX Designs der Webanwendung durchgeführt. Ziel der Umfrage ist es, Feedback von den Nutzern zu sammeln, um die Benutzerfreundlichkeit und Zufriedenheit zu messen und mögliche Verbesserungspotenziale zu identifizieren.
+
+Die Umfrage richtete sich an die zukünftigen Endnutzer der Schichttauschanwendung innerhalb der Firma. Für detailliertere Informationen zum Fragebogen der Nutzerumfrage, siehe Anhang~\ref{app:fragebogenNutzerumfrage}.
+
+\subsection{Methodik und Durchführung der Nutzerumfrage}
+
+Die Umfrage besteht aus einem einem quantitativen und einem qualitativen Abschnitt. Der quantitative Teil der Umfrage umfasst Fragen, die die Intuitivität der Funktionen, die Ansprechbarkeit des visuellen Designs, die Übersichtlichkeit des Bildschirmaufbaus, die Ästhetik im Light Mode und Dark Mode sowie die Präferenz für die Nutzung der Anwendung über Web, Handy oder beides bewertet haben.
+
+Im qualitativen Teil der Umfrage wurden die Teilnehmer durch offene Fragen dazu angeregt, ihre Verbesserungsvorschläge und Anregungen zur Umsetzung zu geben. Es wurde nach den fehlenden Funktionen oder Informationen sowie den wichtigsten Aspekten für die Nutzer gefragt.
+
+Die Umfrage wurde online über ein Microsoft Forms Dokument durchgeführt, was eine einfache Verteilung und Teilnahme ermöglicht hat.
+
+\subsection{Auswertung und Analyse der Nutzerumfrage}
+
+An der Umfrage haben fünf von sechs zukünftigen Nutzern der Schichttauschanwendung teilgenommen. Die Ergebnisse bieten einen Einblick in die Benutzerfreundlichkeit, das visuelle Design und die Funktionalität der Anwendung.
+
+Die Teilnehmer bewerteten die Intuitivität der Funktionen der Anwendung durchschnittlich mit 9,0 von 10 Punkten. Dies deutet darauf hin, dass die meisten Nutzer die Bedienung der Anwendung als sehr intuitiv empfanden. Dennoch wurden spezifische Verbesserungswünsche geäußert, es wurde der Wunsch geäußert, den Prozess des Ringtausches zu erleichtern und klare Kommunikationsmöglichkeiten bei der Angabe von Schichten zu schaffen, die für den Tausch angeboten werden können, insbesondere wenn ein Nutzer nur nach einer späteren Schicht sucht.
+
+Die Umfrageergebnisse der wichtigsten Aspekte für den Nutzer zeigen, dass diesen vor allem die Übersichtlichkeit der Anwendung am wichtigsten ist, was fünfmal genannt wurde. Weitere bedeutende Aspekte umfassen die Effizienz der Anwendung, die Organisation bei mehreren Tauschwünschen an einem Tag und die Bestätigung des Tauschs mit möglichst wenigen Schritten. Außerdem wurde der Wunsch nach helleren Farben für einen besseren Kontrastmodus und ein schnelles Erfassen der gesuchten Schichten geäußert.
+
+Das visuelle Design der Anwendung wurde im Durchschnitt mit 7,2 Punkten bewertet. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[clip,width=0.75\linewidth]{images/Grafik_Umfrage_visuelles_Design.png}
+    \caption[Bewertung des visuellen Designs der Anwendung]{Bewertung des visuellen Designs der Anwendung}
+    \label{Grafik}
+\end{figure}
+
+Wie in Abbildung \ref{Grafik} dargestellt, reichten die Bewertungen von 3 bis 9 Punkten, was auf eine unterschiedliche Wahrnehmung und verschiedene Präferenzen der Nutzer hinweist.
+
+Die Übersichtlichkeit des Bildschirmaufbaus erhielt eine sehr hohe durchschnittliche Bewertung von 9,4 Punkten. Dies zeigt, dass die Mehrheit der Nutzer den Bildschirmaufbau als sehr klar und strukturiert empfand.
+
+Die allgemeine Ästhetik der Anwendung wurde sowohl im Light Mode als auch im Dark Mode bewertet. Der Light Mode erhielt eine durchschnittliche Bewertung von 8,0 Punkten, während der Dark Mode eine durchschnittliche Bewertung von 6,8 Punkten erhielt. Zwei Personen gaben an, dass ihnen der Light Mode deutlich besser gefiel (3 bzw. 4 Punkte Unterschied), während zwei andere Personen den Dark Mode bevorzugten (2 und 1 Punkt Unterschied). Eine Person bewertete beide Modi gleich gut.
+
+Die Mehrheit der Nutzer (vier von fünf) gab an, hauptsächlich die mobile App nutzen zu wollen, während eine Person sowohl die Web-Anwendung als auch die mobile App gleich häufig nutzen würde. Dies bestätigt die beim Entwurf der Anwendung getroffene Vermutung.
+
+Die Nutzer äußerten mehrere Vorschläge für zusätzliche Informationen und Funktionen, die das Tauschen der Schichten vereinfachen könnten. Dazu gehören:
+
+\begin{itemize}
+    \item Eine Anzeige, ob an einem Dienst ein Trainee beteiligt ist.
+    \item Die Möglichkeit, Anfragen als dringend zu kennzeichnen.
+    \item Ein Feld für Details zu den Anfragen.
+    \item Eine Priorisierung bei mehreren Personen, die die gleiche Schicht suchen.
+    \item Eine Verknüpfung mit dem eigenen Kalender, um Tauschmöglichkeiten schnell zu erkennen.
+    \item Die Anzeige aller möglichen Tauschpartner und der zu tauschenden Dienste.
+    \item Ideal wäre eine Anbindung an den Kalender oder den tatsächlichen Dienstplan, um das Hin- und Herspringen zwischen Anwendungen zu vermeiden.
+  \end{itemize}
+
+Alle Teilnehmer gaben an, dass die Anwendung ihren Anforderungen entspricht, abgesehen von den Anmerkungen bei den vorherigen Fragen. Dies zeigt, dass die Anwendung bereits viele Bedürfnisse der Nutzer erfüllt, jedoch weiterhin etwas Raum für Verbesserungen und die Integration zusätzlicher Informationen besteht.

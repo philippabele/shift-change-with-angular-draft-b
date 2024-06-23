@@ -19,7 +19,7 @@ Am ersten Tag geht es darum, das Problem zu verstehen und den Fokus für die Woc
 
 Am zweiten Tag konzentriert sich das Team auf die Bewältigung bereits bekannter Herausforderungen. Anders als bei herkömmlichen Brainstorming-Sitzungen arbeiten die Teammitglieder einzeln an Lösungsansätzen und folgen einem strukturierten vierstufigen Prozess, um das kritische Denken zu fördern. 
 
-Am dritten Tag trifft das Team Entscheidungen darüber, welche Idee als Prototyp entwickelt und getestet werden sollen. Dabei kommt die fünfstufige "Sticky Decision"-Methode zum Einsatz, um die besten Lösungen zu identifizieren. Anschließend wird ein detaillierter Prozessplan für den Prototypen erstellt. 
+Am dritten Tag trifft das Team Entscheidungen darüber, welche Idee als Prototyp entwickelt und getestet werden sollen. Dabei kommt die fünfstufige „Sticky Decision“-Methode zum Einsatz, um die besten Lösungen zu identifizieren. Anschließend wird ein detaillierter Prozessplan für den Prototypen erstellt. 
 
 Am vierten Tag wird ein realitätsnaher Prototyp entwickelt. Das Ziel ist es, eine testbare Version der Lösung zu erstellen, die am nächsten Tag mit echten Nutzern evaluiert werden kann. 
 
@@ -78,8 +78,7 @@ Diese Daten liefern wertvolle Einblicke in die Nutzerinteraktion und ermögliche
   
 Durch die Kombination dieser Methoden können umfassende Einblicke in die Stärken und Schwächen der User Experience gewonnen werden, die zur kontinuierlichen Verbesserung des Produkts beitragen.
 
-\section{Technologien}
-\subsection{Angular}
+\section{Das Angular-Framework}
 Angular ist eine Plattform zur Entwicklung von Webanwendungen, die auf \ac{TS} basiert. 
 Mit Angular können Single Page Applications für Web-, Mobil- und Desktop-Anwendungen entwickelt werden. 
 Es ist Open Source und wird von Google unterstützt, was bedeutet, dass es kostenlos verwendet werden kann und von einer großen Entwickler-Community gepflegt wird. 
@@ -102,6 +101,13 @@ Eine Komponente besteht aus einer HTML- und CSS-Datei (siehe Abbildung \ref{Komp
     \label{Component}
 \end{figure}
 
-Der @Component-Dekorator in TS fügt der Klasse zusätzliche Metadaten hinzu, wie den Pfad zum Template und zu den Styles (siehe templateUrl und styleUrls in der Abbildung \ref{Component}). Die .spec.ts Datei wird für die Unit-Tests verwendet.
-Der Routing-Service ermöglicht die Navigation innerhalb der Anwendung und zeigt verschiedene Komponenten basierend auf der URL an \cite{angular_arch}.
+Der @Component-Dekorator in TS fügt der Klasse zusätzliche Metadaten hinzu, wie den Pfad zum Template und zu den Styles (siehe templateUrl und styleUrls in der Abbildung \ref{Component}) \cite{angular_arch}.
 
+Durch Unit-Tests in Angular ist es möglich, isoliert einzelne Teile der Anwendung zu testen, um sicherzustellen, dass diese gemäß den Erwartungen funktionieren. 
+Diese Tests sind in .spec.ts Dateien organisiert und umfassen Testfälle für Komponenten, Dienste und Module. 
+Sie werden üblicherweise mit Testing-Frameworks wie Jasmine und Karma ausgeführt, die in die Angular-Entwicklungsumgebung integriert sind. 
+Neben Unit-Tests gibt es auch End-to-End-Tests, die das Verhalten der Anwendung in einer realen Umgebung simulieren \cite[S.340 ff.]{angular_testing}.
+
+Der Routing-Service ermöglicht es verschiedene Ansichten basierend auf der URL der Anwendung zu laden. 
+Durch die Definition von Routen und deren Zuordnung zu spezifischen Komponenten ermöglicht Angular eine klare Strukturierung und Navigation innerhalb der Anwendung, was insbesondere für komplexe Single Page Applications entscheidend ist. 
+Routen können parameterisiert werden oder der Zugriff auf bestimmte Routen kann durch Guards gesteuert werden \cite{angular_routes}.

@@ -13,6 +13,12 @@
 \pagenumbering{gobble}
 \input{prefix/eigenstaendigkeit.tex}
 
+% Kurzfassung
+\input{prefix/Kurzfassung.tex}
+
+% Abstract
+\input{prefix/Abstract.tex}
+
 \tableofcontents
 
 % Abbildungsverzeichnis
@@ -43,11 +49,16 @@
 \input{content/Einleitung.tex}
 \input{content/Grundlagen.tex}
 \input{content/EntwicklungUX_VerwendungGDS.tex}
+\input{content/neues_Bedienungskonzept.tex}
 \input{content/Fazit.tex}
 
 \backmatter
 \sloppy
 \printbibliography
 \addcontentsline{toc}{chapter}{Literaturverzeichnis}
+
+%%%%%% Anhang %%%%%%
+\appendix
+\input{appendix/Anhang.tex}
 
 \end{document}
