@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -15,8 +16,9 @@ export class SwapShiftComponent implements OnInit {
   isUrgent: boolean | null = null;
   Trainee: boolean | null = null;
 
-  constructor(private route: ActivatedRoute, private router: Router, private datePipe: DatePipe) { }
+  constructor(private route: ActivatedRoute, private snackBar: MatSnackBar, private router: Router, private datePipe: DatePipe) { }
 
+  // Initializes the component by extracting query parameters from the route
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.date = params['date'] ? new Date(params['date']) : null;
@@ -33,7 +35,9 @@ export class SwapShiftComponent implements OnInit {
   }
 
   acceptSwap() {
-    alert('Tausch akzeptiert!');
+    this.snackBar.open('Tausch akzeptiert!', '', {
+      duration: 3000, 
+    });
     this.router.navigate(['/home']);
   }
 

@@ -4,7 +4,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
-//import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-settings',
@@ -15,9 +14,9 @@ import { AuthService } from '../../services/auth.service';
 export class SettingsComponent {
   settingsForm: FormGroup;
   currentUser = {
-    firstName: 'Max', // Beispiel-Vorname
-    lastName: 'Doe', // Beispiel-Nachname
-    email: 'beispiel@domain.com', // Beispiel-E-Mail-Adresse
+    firstName: 'Max', // example first name
+    lastName: 'Doe', // example last name
+    email: 'beispiel@domain.com', // example email
   };
 
   constructor(private snackBar: MatSnackBar, private router: Router, private authService: AuthService) {
@@ -28,10 +27,12 @@ export class SettingsComponent {
     });
   }
 
+  // Logs out the current user using the AuthService.
   logout() {
     this.authService.logout();
   }
 
+  // Submits the settings form, updates user data, and shows a success or error message.
   changeData() {
     if (this.settingsForm.valid) {
       console.log('Data changed');
@@ -45,12 +46,4 @@ export class SettingsComponent {
       });
     }
   }
-  /*currentUser: any;
-
-  constructor(private storageService: StorageService) { }
-
-  ngOnInit(): void {
-    this.currentUser = this.storageService.getUser();
-  }*/
-
 }

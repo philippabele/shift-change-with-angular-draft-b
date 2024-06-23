@@ -4,7 +4,8 @@
             <button class="previous" id="month-button" (click)="previousWeeks()">&lt;</button>
             <span class="month-year">
                 <span class="month"><strong>{{ getFirstDateGermanMonthName() }}</strong>
-                    {{ currentYear }}</span> <button class="next" id="month-button" (click)="nextWeeks()">&gt;</button>
+                    {{ currentYear }}</span> 
+                <button class="next" id="month-button" (click)="nextWeeks()">&gt;</button>
             </span>
             <div class="kw">
                 KW {{ displayedWeeks[0].days[0].date | date:'w' }} - KW {{ displayedWeeks[displayedWeeks.length -
@@ -23,7 +24,8 @@
         </thead>
         <tbody>
             <tr *ngFor="let week of displayedWeeks">
-                <td *ngFor="let day of week.days" class="date-table" [class.today]="isToday(day.date)">
+                <td *ngFor="let day of week.days" class="date-table" [class.today]="isToday(day.date)"
+                    [class.swap-shift]="day.isSwapShift">
                     <span class="day">
                         {{
                         isValidDate(day.date) && day.date && (day.date | date:'MMMM') ===
@@ -36,6 +38,15 @@
                         day.date ? (day.date | date:'dd.MM') : ''
                         }}
                     </span>
+                    <div *ngIf="day.isSwapShift" class="swap-shift-box" [class.urgent]="day.isUrgent" (click)="goToAcceptSwap(day)">
+                        <div class="user-name">{{ day.user }}</div>
+                        <div class="shift-details">
+                            <div class="requested-shift"><i class="material-icons">search</i> <span>{{
+                                    day.requestedShift }}</span> </div>
+                            <div class="offered-shift"><i class="material-icons">access_time</i><span>{{
+                                    day.offeredShift }}</span></div>
+                        </div>
+                    </div>
                 </td>
             </tr>
         </tbody>

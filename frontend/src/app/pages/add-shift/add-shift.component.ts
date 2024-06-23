@@ -1,15 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-
-/*
-class SubmittedFormGroup extends FormGroup {
-  submitted = false;
-
-  markAsSubmitted() {
-      this.submitted = true;
-  }
-}*/
 
 @Component({
   selector: 'app-add-shift',
@@ -21,7 +13,7 @@ export class AddShiftComponent implements OnInit {
   schichtForm: FormGroup = this.fb.group({});
   today = new Date();
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.schichtForm = this.fb.group({
@@ -36,6 +28,7 @@ export class AddShiftComponent implements OnInit {
     }, { validators: this.commentRequiredForEarlierOrLater });
   }
 
+  // Validates that a comment is required if either the offered or requested shift is 'earlier' or 'later'.
   commentRequiredForEarlierOrLater(control: AbstractControl): ValidationErrors | null {
     const offeredShift = control.get('geboteneSchicht');
     const requestedShift = control.get('gesuchteSchicht');
@@ -47,27 +40,21 @@ export class AddShiftComponent implements OnInit {
         !comment.value) {
       return { commentRequired: true };
     }
-  
     return null;
   }
 
   onSubmit() {
-    ///this.schichtForm.markAsSubmitted(); // Mark the form as submitted
     if (this.schichtForm.valid) {
         console.log(this.schichtForm.value);
+        this.snackBar.open('Tauschangebot wurde erstellt', '', {
+          duration: 2000,
+     });
+        this.router.navigate(['/home']);
     }
 }
 
   onCancel() {
     this.schichtForm.reset();
     this.router.navigate(['/home']);
-  }
-}
-
-class SubmittedFormGroup extends FormGroup {
-  submitted = false;
-
-  markAsSubmitted() {
-      this.submitted = true;
   }
 }

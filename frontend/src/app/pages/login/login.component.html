@@ -4,13 +4,15 @@
       <form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && addUser()" #f="ngForm">
         <p class="label">Registrierung</p>
         <div class="input-group">
-          <input class="form-control" formControlName="lastName" required [ngClass]="{ 'is-invalid': f.submitted && registerForm.get('lastName').errors }" placeholder="Nachname">
+          <input class="form-control" formControlName="lastName" required
+            [ngClass]="{ 'is-invalid': f.submitted && registerForm.get('lastName').errors }" placeholder="Nachname">
           <div *ngIf="registerForm.get('lastName').errors && f.submitted" class="error-message">
             Nachname ist erforderlich.
           </div>
         </div>
         <div class="input-group">
-          <input class="form-control" formControlName="firstName" required [ngClass]="{ 'is-invalid': f.submitted && registerForm.get('firstName').errors }" placeholder="Vorname">
+          <input class="form-control" formControlName="firstName" required
+            [ngClass]="{ 'is-invalid': f.submitted && registerForm.get('firstName').errors }" placeholder="Vorname">
           <div *ngIf="registerForm.get('firstName').errors && f.submitted" class="error-message">
             Vorname ist erforderlich.
           </div>
@@ -25,14 +27,22 @@
           </div>
         </div>
         <div class="input-group">
-          <input type="password" formControlName="password" placeholder="Passwort">
-          <div *ngIf="registerForm.get('password').invalid && (registerForm.get('password').dirty || registerForm.get('password').touched)" class="error-message">
+          <input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Passwort">
+          <mat-icon (click)="toggleShowPassword()">{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          <div
+            *ngIf="registerForm.get('password').invalid && (registerForm.get('password').dirty || registerForm.get('password').touched)"
+            class="error-message">
             <div *ngIf="registerForm.get('password').errors.required">Passwort ist erforderlich.</div>
-            <div *ngIf="registerForm.get('password').errors?.passwordStrength && !registerForm.get('password').errors.required">Das Passwort erfüllt nicht die Sicherheitsanforderungen.</div>
+            <div
+              *ngIf="registerForm.get('password').errors?.passwordStrength && !registerForm.get('password').errors.required">
+              Das Passwort erfüllt nicht die Sicherheitsanforderungen.</div>
           </div>
         </div>
         <div class="input-group">
-          <input type="password" formControlName="confirmPassword" placeholder="Passwort bestätigen">
+          <input [type]="showPassword ? 'text' : 'password'" formControlName="confirmPassword"
+            placeholder="Passwort bestätigen">
+          <mat-icon (click)="toggleShowPassword()">{{ showPassword ?
+            'visibility_off' : 'visibility' }}</mat-icon>
           <div
             *ngIf="registerForm.hasError('mismatch') && (registerForm.get('confirmPassword').dirty || registerForm.get('confirmPassword').touched)"
             class="error-message">
@@ -63,7 +73,8 @@
           </div>
         </div>
         <div class="input-group">
-          <input type="password" formControlName="password" placeholder="Passwort">
+          <input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Passwort">
+          <mat-icon (click)="toggleShowPassword()">{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
           <div
             *ngIf="loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)"
             class="error-message">

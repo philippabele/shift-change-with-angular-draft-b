@@ -3,9 +3,7 @@ import { AbstractControl, ValidationErrors, FormControl, FormGroup, Validators }
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { PasswordStrengthValidator } from '../../validators/password.validator';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
-/*import { StorageService } from '../../services/storage.service';*/
 
 @Component({
   selector: 'app-login',
@@ -13,7 +11,6 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
   registerForm: any = {
     lastName: null,
     firstName: null,
@@ -32,7 +29,7 @@ export class LoginComponent {
   registrationSubmitted: boolean = false;
   loginSubmitted: boolean = false;
 
-  constructor(private userService: UserService, private snackBar: MatSnackBar, private router: Router, private authService: AuthService) {
+  constructor(private userService: UserService, private snackBar: MatSnackBar, private router: Router) {
     this.registerForm = new FormGroup({
       lastName: new FormControl('', Validators.required),
       firstName: new FormControl('', Validators.required),
@@ -47,6 +44,7 @@ export class LoginComponent {
     });
   }
 
+  // Validates that the password and confirm password fields match
   passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
     const passwordControl = control.get('password');
     const confirmPasswordControl = control.get('confirmPassword');
@@ -57,6 +55,7 @@ export class LoginComponent {
     return null;
   }
 
+  // Adds a new user using the registration form values
   addUser() {
     this.registrationSubmitted = true;
 
@@ -78,6 +77,7 @@ export class LoginComponent {
     }
   }
 
+  //Attempts to log in a user with the provided credentials, navigates to the home page on success, or displays an error message on failure.
   onLogin() {
     this.loginSubmitted = true;
 
@@ -116,46 +116,4 @@ export class LoginComponent {
   reloadPage(): void {
     window.location.reload();
   }
-  /*
-    ngOnInit(): void {
-      if (this.storageService.isLoggedIn()) {
-        this.isLoggedIn = true;
-      }
-    }
-       
-    registerOnSubmit(): void {
-      const { lastName, firstName, email, password } = this.registerForm;
-  
-      this.authService.register(lastName, firstName, email, password).subscribe({
-        next: data => {
-          console.log(data);
-          this.isSuccessful = true;
-          this.isSignUpFailed = false;
-          this.snackBar.open('Registrierung erfolgreich!', '', { duration: 2000 });
-          this.showLoginForm(new Event('click'));
-        },
-        error: err => {
-          this.errorMessage = err.error.message;
-          this.isSignUpFailed = true;
-        }
-      });
-    }
-  
-    loginOnSubmit(): void {
-      const { username, password } = this.loginForm;
-  
-      this.authService.login(username, password).subscribe({
-        next: data => {
-          this.storageService.saveUser(data);
-  
-          this.isLoginFailed = false;
-          this.isLoggedIn = true;
-          this.reloadPage();
-        },
-        error: err => {
-          this.errorMessage = err.error.message;
-          this.isLoginFailed = true;
-        }
-      });
-    }*/
 }
